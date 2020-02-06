@@ -69,16 +69,57 @@ namespace Helsinki2017
                 if (versenyzo.Orszag == "HUN" && versenyzo.Technika2 > 0)
                 {
                     bejutott = true;
+                    break;
                 }
             }
             Console.WriteLine("\tA magyar versenyzo {0} a kürbe", bejutott ? "bejutott" : "nem jutott be" );
         }
 
+        private static void Otodik()
+        {
+            Console.WriteLine("5. feladat");
+            Console.WriteLine("\tKérem a versenyző nevét: ");
+            string nev = Console.ReadLine();
+            bool talalt = false;
+            foreach (var versenyzo in versenyzok)
+            {
+                if (versenyzo.Nev == nev)
+                {
+                    Hatodik(versenyzo);
+                    talalt = true;
+                    break;
+                }
+            }
+            if (!talalt)
+            {
+                Console.WriteLine("\tIlyen nevő induló nem volt!");
+            }
+        }
+
+        private static void Hatodik(Versenyzo versenyzo)
+        {
+            Console.WriteLine("6. feladat");
+            Console.WriteLine("\tA versenyző összpontszáma: " + versenyzo.ÖsszPontszám);
+
+        }
+
+        private static void Hetedik()
+        {
+
+        }
+
+        private static void Nyolcadik()
+        {
+
+        }
         static void Main(string[] args)
         {
             Beolvasas();
             Második();
             Harmadik();
+            Otodik();
+            Hetedik();
+            Nyolcadik();
             Console.ReadLine();
         }
     }
